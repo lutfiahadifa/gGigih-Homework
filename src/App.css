@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+}
+
+body {
+  background-color: #EEC373;
+}
+
+header h1 {
+  color: #1C0A00;
+}
+
+.image-album {
+  width: 200px;
+}
+
+.Song-playlist {
+  border: 2px solid #1C0A00;
+  border-radius: 20px;
+  background-color: #F9E0AE;
+  padding: 40px;
+  width: 400px;
+  position:absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+
+.Song-playlist p {
+  font-size: 16px;
+  color: #1C0A00;
+  line-height: 15px;
+}
+
+.Song-playlist button {
+  background-color: #EEC373;
+  border: 1.5px solid #1C0A00;
+  border-radius: 8px;
+  color: #1C0A00;
+  margin-top: 15px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
