@@ -1,10 +1,6 @@
 import './App.css';
-
-import Album from "./components/album";
-import Artist from "./components/artist";
-import Title from "./components/title";
-import AlbumCover from './components/image';
-import Button from './components/button';
+import Song from "./components/song";
+import data from "./data";
 
 function App() {
   return (
@@ -12,12 +8,8 @@ function App() {
       <header className="App-header">
         <h1>Create Playlist</h1>
       </header>
-      <div className="Song-playlist">
-        <AlbumCover/>
-        <Title/>
-        <Album/>
-        <Artist/>
-        <Button/>
+      <div>
+        {data.map((song) => <Song key={song.id} image={song.album.images[1].url} title={song.name} album={song.album.name} artist={song.album.artists[0].name}/>)}
       </div>
     </div>
   );

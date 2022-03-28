@@ -20,10 +20,10 @@ header h1 {
   background-color: #F9E0AE;
   padding: 40px;
   width: 400px;
-  position:absolute;
   margin: auto;
   left: 0;
   right: 0;
+  margin-bottom: 20px;
 }
 
 .Song-playlist p {
