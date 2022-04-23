@@ -4,14 +4,18 @@ import Song from './components/song';
 import Search from './components/search';
 import Login from './components/login';
 import Playlist from './components/playlist';
+import {useSelector, useDispatch} from 'react-redux';
+import { setAccessToken } from "./reducer/slice";
+import axios from 'axios'; 
 
-const axios = require('axios');
 function App() {
-  const [accessToken, setAccessToken] = useState("");
+
   const [search, set_search] = useState("");
   const [tracks, set_tracks] = useState([]);
   const [selected, setSelected] = useState([]);
   const [combineTrack, setCombineTrack] = useState([]);
+  const accessToken = useSelector((state) => state.token.value);
+  const dispatch = useDispatch();
 
   var client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
   var scope = 'playlist-modify-private user-read-private';
@@ -21,12 +25,13 @@ function App() {
       spotify_url += '&client_id=' + encodeURIComponent(client_id);
       spotify_url += '&scope=' + encodeURIComponent(scope);
       spotify_url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+  
   useEffect(() => {
     const queryString = new URL(window.location.href.replace("#", "?"))
       .searchParams;
     const Accesstoken = queryString.get("access_token");
-    setAccessToken(Accesstoken);
-  }, []);
+    dispatch(setAccessToken(Accesstoken));
+  }, [accessToken]);
 
   const getTracks = async () => {
     await axios
