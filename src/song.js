@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Song = ({image, title, artist, album, Selecthandler, select, uri}) => {
+const Song = ({image, title, artist, album, handlerSelect, uri}) => {
+
+    const [select, setSelect] = useState(false);
+
+    const Selecthandler = () => {
+        setSelect(!select);
+        handlerSelect(uri);
+    }
 
     return (
         <table className="Song">
@@ -11,7 +18,7 @@ const Song = ({image, title, artist, album, Selecthandler, select, uri}) => {
                         <p>{title} </p>
                         <p>{artist} </p>
                         <p>{album}</p>
-                        <button onClick={() => {Selecthandler(uri)}}>{select ? 'Deselect' : 'Select'}</button>
+                        <button onClick={Selecthandler}>{select ? 'Deselect' : 'Select'}</button>
                     </td>
                 </tr>
             </tbody>
@@ -19,4 +26,4 @@ const Song = ({image, title, artist, album, Selecthandler, select, uri}) => {
     )
 }
 
-export default Song;
+export default Song; 

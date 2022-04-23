@@ -3,11 +3,23 @@
 }
 
 body {
-  background-color: #EEC373;
+  background-color: black;
 }
 
 header h1 {
-  color: #1C0A00;
+  color: white;
+}
+
+.login a{
+  background-color: green;
+  border: 1.5px solid white;
+  border-radius: 8px;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
 }
 
 .image-album {
@@ -15,9 +27,8 @@ header h1 {
 }
 
 .Song {
-  border: 2px solid #1C0A00;
+  border: 2px solid white;
   border-radius: 10px;
-  background-color: #F9E0AE;
   padding: 5px;
   width: 500px;
   margin: auto;
@@ -28,7 +39,7 @@ header h1 {
 
 .Song p {
   font-size: 16px;
-  color: #1C0A00;
+  color: white;
   line-height: 10px;
 }
 
@@ -46,10 +57,10 @@ td img {
 }
 
 .Song button {
-  background-color: #EEC373;
-  border: 1.5px solid #1C0A00;
+  background-color: green;
+  border: 1.5px solid white;
   border-radius: 8px;
-  color: #1C0A00;
+  color: white;
   padding: 5px 10px;
   text-align: center;
   text-decoration: none;
@@ -61,15 +72,54 @@ td img {
   margin-bottom: 20px;
 }
 
-.search-bar input{
-  height: 20px;
+.search-bar input {
   border-radius: 5px;
+  border: 1.5px solid white;
+  padding: 4px 5px;
+  font-size: 14px;
+  margin-right: 10px;
 }
 
-.search-bar button{
+.search-bar button {
+  background-color: green;
+  border: 1.5px solid white;
+  color: white;
   height: 28px;
-  border: 1.5px solid #1C0A00;
   border-radius: 5px;
   text-align: center;
   font-size: 16px;
+}
+
+.form-playlist {
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 5px;
+  width: 400px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: white;
+}
+
+.form-playlist button {
+  margin: 15px 0;
+  background-color: green;
+  border: 1.5px solid white;
+  border-radius: 8px;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.form-playlist input, textarea {
+  border-radius: 5px;
+}
+
+.form-playlist textarea {
+  height: 60px;
 }

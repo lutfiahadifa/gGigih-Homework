@@ -1,46 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Song from './components/song';
+import Search from './components/search';
+import Login from './components/login';
+import Playlist from './components/playlist';
 
 const axios = require('axios');
-
 function App() {
-
-  const [accessToken, setAccessToken] = useState(null);
-  const [search, set_search] = useState('');
+  const [accessToken, setAccessToken] = useState("");
+  const [search, set_search] = useState("");
   const [tracks, set_tracks] = useState([]);
   const [selected, setSelected] = useState([]);
   const [combineTrack, setCombineTrack] = useState([]);
-  
+
   var client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
-  var scope = 'playlist-modify-private';
+  var scope = 'playlist-modify-private user-read-private';
   var redirect_uri = 'http://localhost:3000';
-
-  var state = "Spotify-React"
-
-  localStorage.setItem("TOKEN", state)
-
   var spotify_url = 'https://accounts.spotify.com/authorize';
       spotify_url += '?response_type=token';
       spotify_url += '&client_id=' + encodeURIComponent(client_id);
       spotify_url += '&scope=' + encodeURIComponent(scope);
       spotify_url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
-      spotify_url += '&state' + encodeURIComponent(state);
-
   useEffect(() => {
     const queryString = new URL(window.location.href.replace("#", "?"))
       .searchParams;
     const Accesstoken = queryString.get("access_token");
     setAccessToken(Accesstoken);
   }, []);
-
-  useEffect(() => {
-    const handleCombineTrack = tracks.map((track) => ({
-      ...track,
-      select : selected.find((data) => data === track.uri),
-    }));
-    setCombineTrack(handleCombineTrack);
-  }, [tracks, selected]);
 
   const getTracks = async () => {
     await axios
@@ -55,12 +41,29 @@ function App() {
     });
   };
 
-  const Selecthandler = (uri) => {
-    const onSelected = selected.find((track) => track === uri);
+  const searchChange = (e) => {
+    set_search(e.target.value);
+  };
+
+  const handlerSelect = (uri) => {
+    const onSelected = selected.find(track => track === uri);
     onSelected ?
     setSelected(selected.filter((track) => track !== uri))
     : setSelected ([...selected, uri]);
+    console.log(selected);
   };
+
+  const clearSelect = () => {
+    setSelected([]);
+  }
+
+  useEffect(() => {
+    const handleCombineTrack = tracks.map((item) => ({
+      ...item,
+      select : selected.find((track) => track === item.uri),
+    }));
+    setCombineTrack(handleCombineTrack);
+  }, [selected, tracks]);
 
   return (
     <div className="App">
@@ -68,25 +71,33 @@ function App() {
         <h1>Spotify React</h1>
       </header>
       {(!accessToken) && (
-        <a href={spotify_url} className="login">Login Spotify</a>
+        <Login login_url={spotify_url}/>
       )}
 
       {(accessToken) && (
-        <div className="search-bar">
-          <input value={search} onChange={e => set_search(e.target.value)} placeholder="Search" />
-          <button onClick={getTracks} className="button-login">Search</button>
+        <div>
+          <Playlist
+            accessToken = {accessToken}
+            uriTrack = {selected}
+            clearSelect = {clearSelect}
+          />
+          <Search
+            search={search}
+            getTracks={getTracks}
+            searchChange={searchChange}
+          />
         </div>
       )}  
       <div>
-        {combineTrack.map((track) => {
-          const { name, album, select, uri} = track;
+      {combineTrack.map((item) => {
+          const { name, album, select, uri} = item;
           return (
             <Song key={uri} 
             image={album.images[1].url} 
             title={name} 
             album={album.name} 
             artist={album.artists[0].name}
-            Selecthandler={Selecthandler}
+            Selecthandler={handlerSelect}
             uri={uri}
             select={select}
             />
