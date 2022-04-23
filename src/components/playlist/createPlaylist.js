@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Playlist = ({accessToken, uriTrack, clearSelect}) => {
+const CreatePlaylist = ({accessToken, uriTrack, clearSelect}) => {
 
     const [form, setForm] = useState({
         title: '',
         description: ''
     })
-
     const handleForm = e => {
         const { name, value } = e.target;
         setForm({ ...form, [name]: value })
@@ -57,7 +56,6 @@ const Playlist = ({accessToken, uriTrack, clearSelect}) => {
                 })
                 alert("Playlist Created!");
                 setForm({title: "", description: ""});
-                clearSelect();
             }
             getUser();
         } else {
@@ -65,7 +63,6 @@ const Playlist = ({accessToken, uriTrack, clearSelect}) => {
             setForm({title: "", description: ""});
         };
     }
-
     return(
         <div>
             <form className="form-playlist" onSubmit={submitHandler}>
@@ -89,7 +86,7 @@ const Playlist = ({accessToken, uriTrack, clearSelect}) => {
                 <button id="submit" type="submit">Submit</button>
             </form>
         </div>
-    )
+    );
 }
 
-export default Playlist;
+export default CreatePlaylist;
