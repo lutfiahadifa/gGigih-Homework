@@ -56,6 +56,7 @@ const CreatePlaylist = ({accessToken, uriTrack, clearSelect}) => {
                 })
                 alert("Playlist Created!");
                 setForm({title: "", description: ""});
+                clearSelect();
             }
             getUser();
         } else {

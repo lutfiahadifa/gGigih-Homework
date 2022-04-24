@@ -46,11 +46,16 @@ const Playlist = () => {
         setCombineTrack(handleCombineTrack);
       }, [selected, tracks]);
 
+      const clearSelected = () => {
+        setSelected([]);
+      };
+
     return (
         <div>
             <CreatePlaylist
                 accessToken = {accessToken}
                 uriTrack = {selected}
+                clearSelect={clearSelected}
             />
             <Search
                 search={search}
@@ -65,7 +70,7 @@ const Playlist = () => {
               title={name} 
               album={album.name} 
               artist={album.artists[0].name}
-              handlerSelect={handlerSelect}
+              Selecthandler={handlerSelect}
               uri={uri}
               select={select}
               />
