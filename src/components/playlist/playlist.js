@@ -4,6 +4,8 @@ import CreatePlaylist from "./createPlaylist";
 import Search from "./search";
 import Song from "./song";
 import { useSelector } from "react-redux";
+import AppBar from '@mui/material/AppBar';
+import Typography from '@mui/material/Typography';
 
 const Playlist = () => {
 
@@ -51,34 +53,46 @@ const Playlist = () => {
       };
 
     return (
-      <div className="create-playlist">
-          <CreatePlaylist
-            accessToken = {accessToken}
-            uriTrack = {selected}
-            clearSelect={clearSelected}
-          />
-          <div className="search">
-            <Search
-              search={search}
-              getTracks={getTracks}
-              searchChange={searchChange}
+      <div>
+          <AppBar color="success" position="static">
+            <Typography
+                variant="h6"
+                noWrap
+                component="div"
+                sx={{ display: { xs: 'none', sm: 'block' } }}
+            >
+              Spotify React
+            </Typography>
+          </AppBar>
+        <div className="create-playlist">
+            <CreatePlaylist
+              accessToken = {accessToken}
+              uriTrack = {selected}
+              clearSelect={clearSelected}
             />
-            {combineTrack.map((item) => {
-            const { name, album, uri, select } = item;
-            return (
-              <Song key={uri} 
-              image={album.images[1].url} 
-              title={name} 
-              album={album.name} 
-              artist={album.artists[0].name}
-              Selecthandler={handlerSelect}
-              uri={uri}
-              select={select}
+            <div className="search">
+              <Search
+                search={search}
+                getTracks={getTracks}
+                searchChange={searchChange}
               />
-            );
-            })};
+              {combineTrack.map((item) => {
+              const { name, album, uri, select } = item;
+              return (
+                <Song key={uri} 
+                image={album.images[1].url} 
+                title={name} 
+                album={album.name} 
+                artist={album.artists[0].name}
+                Selecthandler={handlerSelect}
+                uri={uri}
+                select={select}
+                />
+              );
+              })}
+          </div>
         </div>
-      </div>
+      </div>  
     );
 }
 

@@ -2,138 +2,78 @@
   text-align: center;
 }
 
-body {
-  background-color: black;
+.login {
+  margin-top: 20%;
 }
 
-h1 {
-  color: white;
-}
-
-.login a{
-  background-color: green;
-  border: 1.5px solid white;
-  border-radius: 8px;
-  color: white;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
+.login h1 {
+  color: rgb(37, 94, 38);
 }
 
 .image-album {
-  width: 100px;
+  width: 140px;
 }
 
 .Song {
-  border: 2px solid white;
-  border-radius: 10px;
-  padding: 5px;
   width: 400px;
   margin: auto;
   left: 0;
   right: 0;
-  margin-bottom: 10px;
   display: flex;
 }
 
-.Song p {
-  font-size: 16px;
-  color: white;
-  line-height: 10px;
-}
-
-table {
-  width: 100%;
-}
-
-.Song img {
-  width: 30%;
+.image-song {
+  justify-content: center;
+  width: 40%;
 }
 
 .detail-song {
   text-align: left;
-  width: 70%;
-  padding-left: 20px;
+  width: 60%;
+  padding: 5px;
 }
 
-.Song button {
-  background-color: green;
-  border: 1.5px solid white;
-  border-radius: 8px;
-  color: white;
-  padding: 5px 10px;
+.detail-song p {
+  margin: 5px;
+}
+
+.Song Button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14px;
 }
 
 .search-bar {
   margin-bottom: 20px;
   width: 500px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
-.search-bar input{
-  height: 20px;
+.search-bar input {
   border-radius: 5px;
 }
-.search-bar button{
-  background-color: green;
-  border: 1.5px solid white;
-  border-radius: 5px;
+
+.search-bar Button {
   color: white;
-  padding: 2.5px 5px;
   font-size: 14px;
-  margin-left: 4px;
+  padding: 7px 10px;
+  margin-left: 10px;
 }
+
 .form-playlist {
-  border: 2px solid white;
-  border-radius: 10px;
-  padding: 15px;
   width: 300px;
-  color: white;
-  display: grid;
-  grid-gap: 5px;
 }
 
-.form-playlist button {
+.form-playlist Button {
   margin: 15px 0;
-  background-color: green;
-  border: 1.5px solid white;
-  border-radius: 8px;
-  color: white;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
   justify-content: center;
-  grid-column: 1/3;
-}
-
-.form-playlist input, textarea {
-  border-radius: 5px;
-  grid-column: 2 / 3;
-}
-
-.form-playlist h3 {
-  grid-column: 1/3;
-}
-
-.form-playlist textarea {
-  height: 60px;
-}
-
-.form-playlist label {
-  grid-column: 1 / 2;
-  text-align: left;
 }
 
 .create-playlist {
-  display: flex;
   justify-content: center;
-  gap: 20px;
   padding-top: 20px;
 }

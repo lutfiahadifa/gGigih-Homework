@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { TextField } from '@mui/material';
 
 const CreatePlaylist = ({accessToken, uriTrack, clearSelect}) => {
 
@@ -65,28 +72,48 @@ const CreatePlaylist = ({accessToken, uriTrack, clearSelect}) => {
         };
     }
     return(
-        <div>
-            <form className="form-playlist" onSubmit={submitHandler}>
-                <h3>Create Playlist</h3>
-                <label htmlFor="title">Playlist Title</label>
-                <input 
-                    name="title" 
-                    onChange={handleForm} 
-                    value={form.title}
-                    placeholder="Your Playlist Title" 
-                    required>
-                </input>
-                <label htmlFor="description">Description</label>
-                <textarea 
-                    name="description" 
-                    onChange={handleForm} 
-                    value={form.description}
-                    placeholder="Descripstion" 
-                    required>
-                </textarea>
-                <button id="submit" type="submit">Submit</button>
-            </form>
-        </div>
+        <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <Box
+                sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                '& .MuiTextField-root': { m: 1, width: '28ch'},
+                }}
+            >
+                <Paper elevation={8} sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
+                    <form className="form-playlist" onSubmit={submitHandler}>
+                        <Typography mb={2} component="h3" variant="h5">
+                            Create Playlist
+                        </Typography>
+                        <label htmlFor="title"></label>
+                        <TextField 
+                            label="Playlist Name"
+                            size="small"
+                            name="title"
+                            onChange={handleForm} 
+                            value={form.title}
+                            placeholder="Your Playlist Title" 
+                            color="success"
+                        >
+                        </TextField>
+                        <label htmlFor="description"></label>
+                        <TextField 
+                            label="Description"
+                            name="description"
+                            size="small" 
+                            onChange={handleForm} 
+                            value={form.description}
+                            placeholder="Descripstion" 
+                            color="success"
+                        >
+                        </TextField>
+                        <Button color="success" variant="contained" id="submit" type="submit">Submit</Button>
+                    </form>
+                </Paper>
+            </Box>
+      </Container>
     );
 }
 

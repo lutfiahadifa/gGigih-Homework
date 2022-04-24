@@ -9,7 +9,6 @@ function App() {
   const accessToken = useSelector((state) => state.token.value);
   return (
     <div className="App">
-      <h1>SPOTIFY REACT</h1>
       <Router>
         <Switch>
             <Route exact path="/">

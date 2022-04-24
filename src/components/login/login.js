@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { setAccessToken } from '../../reducer/slice';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Button';
 
 const Login = () => {
 
@@ -26,7 +28,10 @@ const Login = () => {
 
     return (
         <div className="login">
-            <a href={spotify_url}>LOGIN WITH SPOTIFY</a>
+            <h1>SPOTIFY REACT</h1>
+            <Grid>
+                <Button color="success" variant="contained" href={spotify_url}>LOGIN WITH SPOTIFY</Button>
+            </Grid>
         </div>
     );
 }
