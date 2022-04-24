@@ -30,11 +30,12 @@ h1 {
   border: 2px solid white;
   border-radius: 10px;
   padding: 5px;
-  width: 500px;
+  width: 400px;
   margin: auto;
   left: 0;
   right: 0;
   margin-bottom: 10px;
+  display: flex;
 }
 
 .Song p {
@@ -47,13 +48,14 @@ table {
   width: 100%;
 }
 
-td img {
+.Song img {
   width: 30%;
 }
 
 .detail-song {
   text-align: left;
   width: 70%;
+  padding-left: 20px;
 }
 
 .Song button {
@@ -70,37 +72,30 @@ td img {
 
 .search-bar {
   margin-bottom: 20px;
+  width: 500px;
 }
 
-.search-bar input {
+.search-bar input{
+  height: 20px;
   border-radius: 5px;
-  border: 1.5px solid white;
-  padding: 4px 5px;
-  font-size: 14px;
-  margin-right: 10px;
 }
-
-.search-bar button {
+.search-bar button{
   background-color: green;
   border: 1.5px solid white;
-  color: white;
-  height: 28px;
   border-radius: 5px;
-  text-align: center;
-  font-size: 16px;
+  color: white;
+  padding: 2.5px 5px;
+  font-size: 14px;
+  margin-left: 4px;
 }
-
 .form-playlist {
   border: 2px solid white;
   border-radius: 10px;
-  padding: 5px;
-  width: 400px;
-  margin: auto;
-  left: 0;
-  right: 0;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  padding: 15px;
+  width: 300px;
   color: white;
+  display: grid;
+  grid-gap: 5px;
 }
 
 .form-playlist button {
@@ -114,12 +109,31 @@ td img {
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
+  justify-content: center;
+  grid-column: 1/3;
 }
 
 .form-playlist input, textarea {
   border-radius: 5px;
+  grid-column: 2 / 3;
+}
+
+.form-playlist h3 {
+  grid-column: 1/3;
 }
 
 .form-playlist textarea {
   height: 60px;
+}
+
+.form-playlist label {
+  grid-column: 1 / 2;
+  text-align: left;
+}
+
+.create-playlist {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 20px;
 }

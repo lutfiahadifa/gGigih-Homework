@@ -51,16 +51,17 @@ const Playlist = () => {
       };
 
     return (
-        <div>
-            <CreatePlaylist
-                accessToken = {accessToken}
-                uriTrack = {selected}
-                clearSelect={clearSelected}
-            />
+      <div className="create-playlist">
+          <CreatePlaylist
+            accessToken = {accessToken}
+            uriTrack = {selected}
+            clearSelect={clearSelected}
+          />
+          <div className="search">
             <Search
-                search={search}
-                getTracks={getTracks}
-                searchChange={searchChange}
+              search={search}
+              getTracks={getTracks}
+              searchChange={searchChange}
             />
             {combineTrack.map((item) => {
             const { name, album, uri, select } = item;
@@ -77,6 +78,7 @@ const Playlist = () => {
             );
             })};
         </div>
+      </div>
     );
 }
 

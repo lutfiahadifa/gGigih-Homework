@@ -68,22 +68,22 @@ const CreatePlaylist = ({accessToken, uriTrack, clearSelect}) => {
         <div>
             <form className="form-playlist" onSubmit={submitHandler}>
                 <h3>Create Playlist</h3>
-                <label htmlFor="title">Playlist Title</label><br/>
+                <label htmlFor="title">Playlist Title</label>
                 <input 
                     name="title" 
                     onChange={handleForm} 
                     value={form.title}
                     placeholder="Your Playlist Title" 
                     required>
-                </input><br/>
-                <label htmlFor="description">Description</label><br/>
+                </input>
+                <label htmlFor="description">Description</label>
                 <textarea 
                     name="description" 
                     onChange={handleForm} 
                     value={form.description}
                     placeholder="Descripstion" 
                     required>
-                </textarea><br/>
+                </textarea>
                 <button id="submit" type="submit">Submit</button>
             </form>
         </div>
