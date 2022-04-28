@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Playlistify App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Playlistify App is a playlist maker app that can connect directly to your spotify.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+* Login to your Spotify Account
+* Search song that you want to include in your playlist
+* Select or Deselect song that you want to include in your playlist
+* Create playlist name and descriptions of the playlist you want to create
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Clone this repository 
+`git clone https://github.com/lutfiahadifa/gGigih-Homework.git`
+* Open this file use terminal command
+`cd gGigih-Homework`
+* Intall dependencies in your terminal use this command
+`npm install`
+* Create file `.env.local` and add your Spotify api key to 
+`REACT_APP_SPOTIFY_CLIENT_ID = add-your-spotify-api-key-here`
+* Use `npm start` in your terminal to run this file
+* Open http://localhost:3000 in your browser to use this app
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How to Use This App
 
-### `npm test`
+* Click button `LOGIN WITH SPOTIFY` and login your Spotify Account
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="https://user-images.githubusercontent.com/89604074/165823745-6a82df05-6ea7-464d-b22d-19b290707bba.png" width=40%>
+<img src="https://user-images.githubusercontent.com/89604074/165826941-94150401-20dd-40f9-b8fa-82dafa88e530.png" width=40%>
 
-### `npm run build`
+* Set your playlist name and description that you want to create
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="https://user-images.githubusercontent.com/89604074/165825139-3e73be3c-7d63-49df-bcb2-f6df331ecf42.png" width=40%>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Search Song that you want to include in your playlist
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img src="https://user-images.githubusercontent.com/89604074/165825368-6b556d19-c3b9-4bcc-8f50-f6d9ff88be58.png" width=40%>
 
-### `npm run eject`
+* Select or Deselect song that you want to include in your playlist
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<img src="https://user-images.githubusercontent.com/89604074/165825478-45c64abf-f2c6-410c-8bf8-6c6d555c5333.png" width=40%>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Submit selected song, playlist name and description of your playlist and that playlist will appear on your spotify page!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<img src="https://user-images.githubusercontent.com/89604074/165825635-596df105-454d-46a2-a813-e738f1a80612.png" width=40%>
+<img src="https://user-images.githubusercontent.com/89604074/165826531-4c226e7e-9556-4f44-a4cf-e1873ff28547.png" width=40%>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
