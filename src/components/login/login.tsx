@@ -28,10 +28,12 @@ const Login = () => {
 
     return (
         <div className="login">
-            <h1>SPOTIFY REACT</h1>
-            <Grid>
-                <Button color="success" variant="contained" href={spotify_url}>LOGIN WITH SPOTIFY</Button>
-            </Grid>
+            <div className="login-content">
+                <h1>Playlistify</h1>
+                <Grid>
+                    <Button className="login-button" color="success" variant="contained" href={spotify_url}>LOGIN WITH SPOTIFY</Button>
+                </Grid>
+            </div>
         </div>
     );
 };

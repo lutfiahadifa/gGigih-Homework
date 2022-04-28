@@ -3,11 +3,23 @@
 }
 
 .login {
-  margin-top: 20%;
+  height: 722px;
+  min-height: 100%;
+  background-image: url(https://images.radio.com/aiu-media/gettyimages-526833490-0ab54b11-5d9b-4ee0-9a9a-edabf907daae.jpg);
+  background-size: cover;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+}
+
+.login-content {
+  margin-top: 0;
 }
 
 .login h1 {
-  color: rgb(37, 94, 38);
+  color: white;
+  padding-top: 10%;
+  margin-top: 0;
 }
 
 .Song {

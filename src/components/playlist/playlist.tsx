@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import CreatePlaylist from "./createPlaylist";
-import Search from "./search";
-import Song from "./song";
+import CreatePlaylist from "./createPlaylist/createPlaylist";
+import Search from "./search/search";
+import Song from "./song/song";
 import { useSelector } from "react-redux";
 import AppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
@@ -89,7 +89,7 @@ const Playlist = () => {
                 component="div"
                 sx={{ display: { xs: 'none', sm: 'block' } }}
             >
-              Spotify React
+              Playlistify
             </Typography>
           </AppBar>
         <div className="create-playlist">
