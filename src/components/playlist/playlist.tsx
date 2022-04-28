@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import CreatePlaylist from "./createPlaylist";
 import Search from "./search";
@@ -7,13 +7,33 @@ import { useSelector } from "react-redux";
 import AppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
 
+interface tracksInterface { 
+  uri: string; 
+  album: { 
+    name: string; 
+    artists: {
+      [index: number]: {
+        name: string;
+      }
+    }
+    images: { 
+      [index: number]: { 
+        url: string; 
+      }; 
+    }; 
+  }; 
+  name: string; 
+  duration_ms: number;
+  select: boolean; 
+};
+
 const Playlist = () => {
 
-    const accessToken = useSelector((state) => state.token.value);
+    const accessToken = useSelector((state: any) => state.token.value);
     const [search, set_search] = useState("");
     const [tracks, set_tracks] = useState([]);
-    const [selected, setSelected] = useState([]);
-    const [combineTrack, setCombineTrack] = useState([]);
+    const [selected, setSelected] = useState<string[]>([]);
+    const [combineTrack, setCombineTrack] = useState<tracksInterface[]>([]);
 
     const getTracks = async () => {
         await axios
@@ -28,11 +48,11 @@ const Playlist = () => {
         });
     };
 
-    const searchChange = (e) => {
+    const searchChange = (e: any) => {
         set_search(e.target.value);
     };
 
-      const handlerSelect = (uri) => {
+      const handlerSelect = (uri: string) => {
         const onSelected = selected.find(track => track === uri);
         onSelected ?
         setSelected(selected.filter((track) => track !== uri))
@@ -41,20 +61,28 @@ const Playlist = () => {
       };
 
       useEffect(() => {
-        const handleCombineTrack = tracks.map((item) => ({
+        const handleCombineTrack = tracks.map((item: tracksInterface) => ({
           ...item,
-          select : selected.find((track) => track === item.uri),
+          select : selected.find((track) => track === item.uri) ? true : false,
         }));
         setCombineTrack(handleCombineTrack);
       }, [selected, tracks]);
 
-      const clearSelected = () => {
+      const clearSelect = () => {
         setSelected([]);
+      };
+
+      const durationTrack = (duration: number) => {
+        const minutes = Math.floor(duration / 60000);
+        const seconds = ((duration % 60000) / 1000).toFixed(0);
+        return (
+          `${minutes}:${seconds}`
+        );
       };
 
     return (
       <div>
-          <AppBar color="success" position="static">
+          <AppBar sx={{ bgcolor: "rgb(37, 94, 38)" }} position="static">
             <Typography
                 variant="h6"
                 noWrap
@@ -66,9 +94,9 @@ const Playlist = () => {
           </AppBar>
         <div className="create-playlist">
             <CreatePlaylist
-              accessToken = {accessToken}
-              uriTrack = {selected}
-              clearSelect={clearSelected}
+              accessToken={accessToken}
+              uriTrack={selected}
+              clearSelected={clearSelect}
             />
             <div className="search">
               <Search
@@ -76,17 +104,18 @@ const Playlist = () => {
                 getTracks={getTracks}
                 searchChange={searchChange}
               />
-              {combineTrack.map((item) => {
-              const { name, album, uri, select } = item;
+              {combineTrack.map((item: tracksInterface) => {
+              const { name, album, uri, select, duration_ms } = item;
               return (
                 <Song key={uri} 
-                image={album.images[1].url} 
-                title={name} 
-                album={album.name} 
-                artist={album.artists[0].name}
-                Selecthandler={handlerSelect}
-                uri={uri}
-                select={select}
+                  image={album.images[1].url} 
+                  title={name} 
+                  album={album.name} 
+                  artist={album.artists[0].name}
+                  duration={durationTrack(duration_ms)}
+                  Selecthandler={handlerSelect}
+                  uri={uri}
+                  select={select}
                 />
               );
               })}
@@ -94,6 +123,6 @@ const Playlist = () => {
         </div>
       </div>  
     );
-}
+};
 
 export default Playlist;

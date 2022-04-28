@@ -1,8 +1,17 @@
-import React from "react";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-const Search = ({search, getTracks, searchChange}) => {
+interface SearchInterface {
+    search: string;
+    getTracks: () => void;
+    searchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+const Search = ({
+    search, 
+    getTracks, 
+    searchChange
+}: SearchInterface) => {
 
     return (
         <div className="search-bar">
@@ -10,6 +19,6 @@ const Search = ({search, getTracks, searchChange}) => {
             <Button color="success" variant="contained" onClick={getTracks} className="button-login">Search</Button>
         </div>
     );
-}
+};
 
 export default Search;

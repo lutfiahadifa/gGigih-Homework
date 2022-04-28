@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { setAccessToken } from '../../reducer/slice';
 import Button from '@mui/material/Button';
@@ -14,9 +14,9 @@ const Login = () => {
 
     var spotify_url = 'https://accounts.spotify.com/authorize';
         spotify_url += '?response_type=token';
-        spotify_url += '&client_id=' + encodeURIComponent(client_id);
-        spotify_url += '&scope=' + encodeURIComponent(scope);
-        spotify_url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+        spotify_url += '&client_id=' + client_id;
+        spotify_url += '&scope=' + scope;
+        spotify_url += '&redirect_uri=' + redirect_uri;
 
     useEffect(() => {
         const queryString = new URL(window.location.href.replace("#", "?"))
@@ -34,6 +34,6 @@ const Login = () => {
             </Grid>
         </div>
     );
-}
+};
 
 export default Login;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -8,17 +8,29 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { TextField } from '@mui/material';
 
-const CreatePlaylist = ({accessToken, uriTrack, clearSelect}) => {
+interface createPlaylistInterface {
+    accessToken: string;
+    uriTrack: string[];
+    clearSelected: () => void;
+};
+
+const CreatePlaylist = ({
+    accessToken, 
+    uriTrack,
+    clearSelected
+}: createPlaylistInterface) => {
 
     const [form, setForm] = useState({
         title: '',
         description: ''
-    })
-    const handleForm = e => {
+    });
+
+    const handleForm = (e: any) => {
         const { name, value } = e.target;
         setForm({ ...form, [name]: value })
-    }
-    const submitHandler = async e => {
+    };
+
+    const submitHandler = async (e: any) => {
         e.preventDefault();
         console.log(form);
         if (form.title.length > 10) {
@@ -63,14 +75,15 @@ const CreatePlaylist = ({accessToken, uriTrack, clearSelect}) => {
                 })
                 alert("Playlist Created!");
                 setForm({title: "", description: ""});
-                clearSelect();
             }
+            clearSelected();
             getUser();
         } else {
             alert("Title Too Short!");
             setForm({title: "", description: ""});
         };
-    }
+    };
+
     return(
         <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -82,7 +95,7 @@ const CreatePlaylist = ({accessToken, uriTrack, clearSelect}) => {
                 '& .MuiTextField-root': { m: 1, width: '28ch'},
                 }}
             >
-                <Paper elevation={8} sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
+                <Paper elevation={8} sx={{ my: { xs: 1, md: 3 }, p: { xs: 1, md: 2 } }}>
                     <form className="form-playlist" onSubmit={submitHandler}>
                         <Typography mb={2} component="h3" variant="h5">
                             Create Playlist
@@ -115,6 +128,6 @@ const CreatePlaylist = ({accessToken, uriTrack, clearSelect}) => {
             </Box>
       </Container>
     );
-}
+};
 
 export default CreatePlaylist;
