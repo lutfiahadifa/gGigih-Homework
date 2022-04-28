@@ -10,7 +10,7 @@ const Login = () => {
 
     var client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
     var scope = 'playlist-modify-private user-read-private';
-    var redirect_uri = 'http://localhost:3000';
+    var redirect_uri = 'g-gigih-homework.vercel.app';
 
     var spotify_url = 'https://accounts.spotify.com/authorize';
         spotify_url += '?response_type=token';
